@@ -90,7 +90,7 @@ export class TimeWarp extends Effect {
         const screenshotImageData: string = await app.obs.getSourceScreenshot("Time Warp Nested", filePath);
 
         // Upload screenshot to Discord channel
-        this.uploadTimeWarpToDiscord(randomDuration, randomAngle, screenshotImageData);
+        // this.uploadTimeWarpToDiscord(randomDuration, randomAngle, screenshotImageData);
 
         // Switch back to original scene
         await app.obs.setScene(currentScene);
@@ -145,7 +145,7 @@ export class TimeWarp extends Effect {
             body: formData,
             redirect: "follow"
         };
-    
+
         const response: Response = await fetch(webhookURL, requestOptions);
     
         if (response.status == 401) {

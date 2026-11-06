@@ -18,7 +18,7 @@ export const socialTriggers: Array<ChatTriggerData> = [
         aliases: ["discord"],
         cooldown: 300,
         announceCD: false,
-        action: "https://disord.gg/bombsquad"
+        action: "he he"
     }, {
         trigger: "!extralife",
         aliases: ["!el", "Extra Life"],
