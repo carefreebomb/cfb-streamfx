@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucasgerrits/BombFX2.git"
+    "url": "git+https://github.com/carefreebomb/cfb-streamfx.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lucasgerrits/BombFX2/issues"
+    "url": "https://github.com/carefreebomb/cfb-streamfx/issues"
   },
-  "homepage": "https://github.com/lucasgerrits/BombFX2#readme",
+  "homepage": "https://github.com/carefreebomb/cfb-streamfx#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
