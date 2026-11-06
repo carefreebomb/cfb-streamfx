@@ -25,7 +25,10 @@ node_modules/
 /vendor/*
 data/secrets/*
 
+config/
+
 audio/
+dist/
 fonts/
 img/
 media/

@@ -1,18 +1,21 @@
 {
     "compilerOptions": {
-        //"allowSyntheticDefaultImports": true,
-        //"moduleResolution": "Node",
-        "sourceMap": true,
-        "target": "es2020",
-        "strict": true,
-        "strictNullChecks": false,
+        "target": "ESNext",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
         "noImplicitOverride": true,
         "noImplicitAny": true,
         "noUnusedLocals": false,
-        "typeRoots": [
-            "./types/",
-            "node_modules/@types"
-        ]
+        "skipLibCheck": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "types": ["node"]
     },
-    "exclude": ["./vendor"]
+    "exclude": ["old/"]
 }
