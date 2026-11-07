@@ -27,6 +27,9 @@ data/secrets/*
 
 config/
 
+.env
+!.env.example
+
 audio/
 dist/
 fonts/
