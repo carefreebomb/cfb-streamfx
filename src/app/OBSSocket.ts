@@ -1,10 +1,12 @@
 import { OBSWebSocket, OBSEventTypes, OBSRequestTypes, OBSResponseTypes } from "obs-websocket-js";
+import { ObsOutputState, ObsMediaInputAction } from "../types/obs.js";
 import config from "./Config.js";
 
 export class OBSSocket {
     private obs: OBSWebSocket;
 
     private currentScene!: string;
+    private previousScene!: string;
     
     constructor() {
         this.obs = new OBSWebSocket();
@@ -34,9 +36,9 @@ export class OBSSocket {
 
     private async registerEventHandlers(): Promise<void> {
         this.obs.on("StreamStateChanged", (data: OBSEventTypes["StreamStateChanged"]) => {
-            if (data.outputState === "OBS_WEBSOCKET_OUTPUT_STARTED") {
+            if (data.outputState === ObsOutputState.Started) {
                 console.log("STREAM STARTED!");
-            } else if (data.outputState === "OBS_WEBSOCKET_OUTPUT_STOPPED") {
+            } else if (data.outputState === ObsOutputState.Stopped) {
                 console.log("STREAM STOPPED!");
             }
         });
