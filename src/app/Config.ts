@@ -21,6 +21,7 @@ class Config {
 
     public readonly twitch = {
         channel: this.requireEnv("TWITCH_CHANNEL"),
+        channelId: this.requireEnv("TWITCH_CHANNEL_ID"),
         clientId: this.requireEnv("TWITCH_CLIENT_ID"),
         clientSecret: this.requireEnv("TWITCH_CLIENT_SECRET"),
         accessToken: this.requireEnv("TWITCH_ACCESS_TOKEN"),
