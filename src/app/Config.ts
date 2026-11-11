@@ -1,6 +1,10 @@
 import "dotenv/config";
 
 class Config {
+    public readonly discord = {
+        secret: this.requireEnv("DISCORD_BOT_SECRET")
+    }
+
     public readonly obs = {
         host: process.env.OBS_HOST ?? "127.0.0.1",
         port: Number(process.env.OBS_PORT ?? 4455),

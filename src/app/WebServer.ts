@@ -4,6 +4,7 @@ import websocket from "@fastify/websocket";
 import { readFileSync } from "fs";
 import path from "path";
 import type { RawData } from "ws";
+import config from "./Config.js";
 
 export default class WebServer {
     private server: FastifyInstance;
@@ -45,6 +46,20 @@ export default class WebServer {
             });
 
             socket.send("Fastify websocket connected.");
+        });
+
+        this.server.get("/ws/discord", {
+            websocket: true,
+            preValidation: (request, reply, done) => {
+                const auth = request.headers.authorization;
+                if (auth !== `Bearer ${config.discord.secret}`) {
+                    reply.code(401).send();
+                    return;
+                }
+                done();
+            }
+        }, (socket, request) => {
+            console.log("Discord bot authenticated");
         });
     }
 
