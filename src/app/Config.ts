@@ -1,6 +1,14 @@
 import "dotenv/config";
 
 class Config {
+    private requireEnv(name: string): string {
+        const value: string | undefined = process.env[name];
+        if (!value) {
+            throw new Error(`Missing environment variable: ${name}`);
+        }
+        return value;
+    }
+
     public readonly discord = {
         secret: this.requireEnv("DISCORD_BOT_SECRET")
     }
@@ -11,14 +19,13 @@ class Config {
         password: this.requireEnv("OBS_PASSWORD")
     }
 
-    private requireEnv(name: string): string {
-        const value: string | undefined = process.env[name];
-
-        if (!value) {
-            throw new Error(`Missing environment variable: ${name}`);
-        }
-
-        return value;
+    public readonly twitch = {
+        channel: this.requireEnv("TWITCH_CHANNEL"),
+        clientId: this.requireEnv("TWITCH_CLIENT_ID"),
+        clientSecret: this.requireEnv("TWITCH_CLIENT_SECRET"),
+        accessToken: this.requireEnv("TWITCH_ACCESS_TOKEN"),
+        refreshToken: this.requireEnv("TWITCH_REFRESH_TOKEN"),
+        botToken: this.requireEnv("TWITCH_BOT_TOKEN")
     }
 }
 
