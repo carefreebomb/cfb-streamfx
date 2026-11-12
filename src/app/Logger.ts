@@ -5,6 +5,10 @@ class Logger {
 
     }
 
+    public app(message: string, ...data: unknown[]): void {
+        this.log(chalk.hex("#DD0012")(`[APP] ${message}`));
+    }
+
     public twitch(message: string, ...data: unknown[]): void {
         this.log(chalk.hex("#9146FF")(`[TWITCH] ${message}`));
     }

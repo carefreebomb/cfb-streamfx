@@ -6,7 +6,7 @@ import path from "path";
 import type { RawData } from "ws";
 import config from "./Config.js";
 
-export default class WebServer {
+export class WebServer {
     private server: FastifyInstance;
 
     constructor() {
