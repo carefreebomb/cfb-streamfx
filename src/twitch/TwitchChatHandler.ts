@@ -1,6 +1,7 @@
 import { StaticAuthProvider } from "@twurple/auth";
 import { ChatClient, ChatMessage } from "@twurple/chat";
 import config from "./../app/Config.js";
+import logger from "../app/Logger.js";
 
 export class TwitchChatHandler {
     private broadcaster: ChatClient;
@@ -23,9 +24,9 @@ export class TwitchChatHandler {
     private async connect(): Promise<void> {
         this.broadcaster.connect();
         this.bot.connect();
-        console.log(`Connected to twitch chat: ${this.channel}`);
+        logger.twitch(`[INFO] Connected to channel \"${this.channel}\"`);
         this.bot.onMessage((channel: string, user: string, text: string, msg: ChatMessage) => {
-            console.log(`[${msg.date.toLocaleTimeString()}] ${msg.userInfo.displayName}: ${text}`);
+            logger.twitch(`[CHAT] ${msg.userInfo.displayName}: ${text}`);
         });
     }
 
@@ -33,7 +34,7 @@ export class TwitchChatHandler {
         try {
             this.broadcaster.quit();
         } catch (error: unknown) {
-            console.log("Failed to disconnect broadcaster account from chat", error);
+            logger.twitch("Failed to disconnect broadcaster account from chat", error);
         }
     }
 
@@ -41,7 +42,7 @@ export class TwitchChatHandler {
         try {
             this.bot.quit();
         } catch (error: unknown) {
-            console.log("Failed to disconnect bot account from chat", error);
+            logger.twitch("Failed to disconnect bot account from chat", error);
         }
     }
 }

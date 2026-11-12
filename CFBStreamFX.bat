@@ -1,3 +1,2 @@
 @echo off
-cd prod/
-cmd /k "node ."
+cmd /k "node ./"

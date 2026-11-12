@@ -3,6 +3,7 @@ import { ApiClient } from "@twurple/api";
 import { EventSubWsListener } from "@twurple/eventsub-ws";
 import { TwitchChatHandler } from "./TwitchChatHandler.js";
 import config from "./../app/Config.js";
+import logger from "./../app/Logger.js";
 import type { EventSubChannelRedemptionAddEvent } from "@twurple/eventsub-base";
 
 export class TwitchClient {
@@ -28,7 +29,7 @@ export class TwitchClient {
         this.eventSub.onChannelRedemptionAdd(
             config.twitch.channelId,
             (redeem: EventSubChannelRedemptionAddEvent) => {
-                console.log(`[${redeem.redemptionDate.toLocaleTimeString()}]: ${redeem.userDisplayName} redeemed ${redeem.rewardTitle} for ${redeem.rewardCost} channel points.`);
+                logger.twitch(`[REDEEM] ${redeem.userDisplayName} redeemed ${redeem.rewardTitle} for ${redeem.rewardCost} channel points.`);
             }
         )
     }
