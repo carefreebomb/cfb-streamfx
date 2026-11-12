@@ -1,22 +1,12 @@
-# Bomb FX 2
+# CFBFX
 
-The code that handles chat triggers, point redeems, audio, visual effects, and more for [CareFreeBomb's Twitch stream](https://www.twitcht.tv/carefreebomb). It is used as a browser source inside of [OBS Studio](https://obsproject.com/) (Open Broadcaster Software) with the remote debug console docked. The source is posted here not with the intent to be run locally, but for the purposes of backup and example for any curious parties.
+The Node.js-powered backend that handles chat triggers, point redeems, audio, visual effects, and more for [CareFreeBomb's Twitch stream](https://www.twitcht.tv/carefreebomb).
 
-## Integrates
+## Built With
 
-* [aws-sdk-js-3](https://github.com/aws/aws-sdk-js-v3) - Provides Amazon Polly text-to-speech services.
-* [cognitive-services-speech-sdk-js](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-javascript) - Provides Microsoft Azure speech-to-text recognition.
-
-* [ComfyJS](https://github.com/instafluff/ComfyJS) - Simplifies Twitch chat (via [TMI.js](https://github.com/tmijs/tmi.js)), bit, sub, and point reward events. 
-The creator [also streams](https://www.twitch.tv/instafluff)!
-
-* [Heat](https://heat.j38.net/) - Twitch Extension that allows for user click data directly on video feed.
-
-* [LumiaStream](https://dev.lumiastream.com/) - API allows control of RGB room lights.
-
-* [obs-websocket-js v5](https://github.com/obs-websocket-community-projects/obs-websocket-js) - allows JS-based connections to OBS (now built-in).
-
-* [Streamer.bot](https://www.streamer.bot/) - for Windows Speech Recognition and VoiceMod through websocket.
+* [OBS Websocket JS](https://github.com/obs-websocket-community-projects/obs-websocket-js) - Allows JS-based websocket connections to OBS
+* [Fastify](https://github.com/fastify/fastify) - A fast and low overhead web server and socket manager
+* [Twurple](https://github.com/twurple/twurple) - Provides a connection to Twitch API, chat, auth, and EventSub
 
 ## Contact
 
