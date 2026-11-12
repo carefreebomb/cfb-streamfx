@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import chalk from "chalk";
 
 class Logger {
@@ -25,6 +28,16 @@ class Logger {
         const timeStr: string = time.substring(0, time.length - 3) + "." + ms + time.substring(time.length - 3);
         const dateStr: string = today.toLocaleDateString("en-CA"); // YYYY-MM-DD
         return `${dateStr} ${timeStr}`;
+    }
+
+    public asciiBanner(): void {
+        const banner: string = readFileSync(
+            join(dirname(fileURLToPath(import.meta.url)), "../../assets/asciiBanner.ansi"),
+            "utf8",
+        ).replace(/\\033/g, "\x1b");
+        console.log(banner);
+        console.log(chalk.hex("#AA0000")("THERE IS NO CAUSE FOR CONCERN - PLEASE REMAIN CALM"));
+        console.log(chalk.hex("#AA0000")("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
     }
 }
 

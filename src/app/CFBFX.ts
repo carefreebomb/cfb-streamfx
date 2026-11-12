@@ -9,7 +9,7 @@ export default class CFBFX {
     //private webserver: WebServer;
 
     constructor() {
-        logger.app("[INFO] CFBFX Loading...");
+        logger.asciiBanner();
         //this.obs = new OBSSocket();
         this.twitch = new TwitchClient();
         //this.webserver = new WebServer();
